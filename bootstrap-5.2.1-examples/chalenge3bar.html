@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 3</title>
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<div class="card text-bg-danger mb-3" style="max-width: 30rem;">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+      <h5 class="card-title">Danger card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+<body>
+    <table>
+        <tr>
+            <td>Kode Barang</td>
+            <td>
+                <select  id="">
+                    <option >B001</option>
+                    <option >BOO2</option>
+                    <option >B003</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Nama Barang</td>
+            <td>
+                <input type="text"  id="" value="Kecap Kentjana">
+            </td>
+        </tr>
+        <tr>
+            <td>Harga Satuan</td>
+            <td class="form-floating">
+                <input type="text"  id="harga" 
+                class="form-control"
+                 placeholder="Harga Satuan"/>
+                 <label for="harga">Harga Satuan</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Satuan</td>
+            <td>
+                <select  id="">
+                    <option >PCS</option>
+                    <option >KG</option>
+                    <option >UNIT</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Jumlah Beli</td>
+            <td>
+                <input type="text"  id="jb">
+            </td>
+        </tr>
+        <tr>
+            <td>Total Harga</td>
+            <td>
+                <input type="text"  id="th" disabled />
+            </td>
+        </tr>
+        <tr>
+            <td>Diskon(%)</td>
+            <td>
+                <input type="text"  id="diskon">
+            </td>
+        </tr>
+        <tr>
+            <td>Potongan</td>
+            <td>
+                <input type="text"  id="potongan" disabled />
+            </td>
+        </tr>
+        <tr>
+            <td>Total Harga Diskon</td>
+            <td>
+                <input type="text"  id="total" disabled />
+            </td>
+        </tr>
+        <tr>
+            <td>Bayar</td>
+            <td>
+                <input type="text"  id="bayar" onkeyup="Hitung()">
+            </td>
+        </tr>
+        <tr>
+            <td>Kembali</td>
+            <td>
+                <input type="text"  id="kembali" disabled />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" 
+                value="Hitung Lagi" 
+                onclick="Hitung()" 
+                class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+    <script>
+        function Hitung(){
+            var harga = document.getElementById("harga").value;
+            var jb = document.getElementById("jb").value;
+            //var th = document.getElementById("th").value;
+            var diskon = document.getElementById("diskon").value;
+            //var potongan = document.getElementById("potongan").value;
+           // var total = document.getElementById("total").value;
+            var bayar = document.getElementById("bayar").value;
+            //var kembali = document.getElementById("kembali").value;
+
+            var th= parseInt(harga) * parseInt(jb);
+            var potongan= parseInt(th) * parseInt(diskon)/100;
+            var total = parseInt(th) - parseInt(potongan);
+            var kembali = parseInt(bayar) - parseInt(total);
+
+            document.getElementById("th").value = th;
+            document.getElementById("potongan").value = potongan;
+            document.getElementById("total").value = total;
+            document.getElementById("kembali").value = kembali;
+
+        }
+    </script>
+</body>
+</html>
